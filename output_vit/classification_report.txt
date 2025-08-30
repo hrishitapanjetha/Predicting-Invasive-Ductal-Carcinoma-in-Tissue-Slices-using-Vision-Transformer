@@ -1,0 +1,10 @@
+Breast Histopathology ViT Model Classification Report
+Test AUC: 0.9612
+               precision    recall  f1-score   support
+
+Non_Cancerous       0.96      0.96      0.96     29811
+       Cancer       0.90      0.89      0.89     11818
+
+     accuracy                           0.94     41629
+    macro avg       0.93      0.93      0.93     41629
+ weighted avg       0.94      0.94      0.94     41629

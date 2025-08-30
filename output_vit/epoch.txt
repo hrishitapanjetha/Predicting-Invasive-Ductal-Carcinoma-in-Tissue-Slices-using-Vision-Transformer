@@ -1,0 +1,26 @@
+Starting Epoch 1/20
+Epoch 1 | train_loss=0.2348 val_loss=0.2032 train_acc=0.9023 val_acc=0.9171 val_auc=0.9698
+Starting Epoch 2/20
+Epoch 2 | train_loss=0.2110 val_loss=0.2453 train_acc=0.9136 val_acc=0.8913 val_auc=0.9694
+Starting Epoch 3/20
+Epoch 3 | train_loss=0.2027 val_loss=0.1973 train_acc=0.9174 val_acc=0.9191 val_auc=0.9700
+Starting Epoch 4/20
+Epoch 4 | train_loss=0.1869 val_loss=0.1865 train_acc=0.9239 val_acc=0.9240 val_auc=0.9740
+Starting Epoch 5/20
+Epoch 5 | train_loss=0.1728 val_loss=0.1778 train_acc=0.9298 val_acc=0.9288 val_auc=0.9758
+Starting Epoch 6/20
+Epoch 6 | train_loss=0.1577 val_loss=0.1701 train_acc=0.9364 val_acc=0.9316 val_auc=0.9776
+Starting Epoch 7/20
+Epoch 7 | train_loss=0.1417 val_loss=0.1645 train_acc=0.9431 val_acc=0.9323 val_auc=0.9793
+Starting Epoch 8/20
+Epoch 8 | train_loss=0.1244 val_loss=0.1660 train_acc=0.9505 val_acc=0.9361 val_auc=0.9799
+Starting Epoch 9/20
+Epoch 9 | train_loss=0.1074 val_loss=0.1782 train_acc=0.9575 val_acc=0.9343 val_auc=0.9786
+Starting Epoch 10/20
+Epoch 10 | train_loss=0.0880 val_loss=0.1809 train_acc=0.9649 val_acc=0.9353 val_auc=0.9793
+Starting Epoch 11/20
+Epoch 11 | train_loss=0.0695 val_loss=0.2006 train_acc=0.9733 val_acc=0.9381 val_auc=0.9797
+Starting Epoch 12/20
+Epoch 12 | train_loss=0.0525 val_loss=0.2244 train_acc=0.9801 val_acc=0.9386 val_auc=0.9792
+Early stopping at epoch 12
+✅ Training complete. Results saved in vit_training_results
