@@ -28,8 +28,7 @@ import timm
 from sklearn.metrics import roc_auc_score, f1_score, precision_score, recall_score, classification_report, confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
 
-# ----------------------------- USER SETTINGS -----------------------------
-DATA_ROOT = "BreastHistopathologyData"  # set to reorganized dataset path
+DATA_ROOT = "BreastHistopathologyData"  
 OUT_DIR = Path("./vit_training_results")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -46,7 +45,6 @@ NUM_WORKERS = 4
 RANDOM_SEED = 42
 EARLY_STOPPING_PATIENCE = 4
 
-# ----------------------------- TRANSFORMS -----------------------------
 random.seed(RANDOM_SEED)
 np.random.seed(RANDOM_SEED)
 torch.manual_seed(RANDOM_SEED)
@@ -66,13 +64,10 @@ val_transform = transforms.Compose([
     transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225]),
 ])
 
-# ----------------------------- HELPERS -----------------------------
-
 def save_txt(path, text):
     with open(path, "w") as f:
         f.write(text)
 
-# ----------------------------- DATA LOADING -----------------------------
 
 def load_datasets(data_root):
     train_ds = datasets.ImageFolder(os.path.join(data_root, "train"), transform=train_transform)
@@ -80,13 +75,11 @@ def load_datasets(data_root):
     test_ds  = datasets.ImageFolder(os.path.join(data_root, "test"),  transform=val_transform)
     return train_ds, val_ds, test_ds
 
-# ----------------------------- MODEL, OPTIM, SCHEDULER -----------------------------
 
 def create_model():
     model = timm.create_model(MODEL_NAME, pretrained=PRETRAINED, num_classes=NUM_CLASSES)
     return model
 
-# Cosine with warmup scheduler
 
 def get_cosine_scheduler(optimizer, warmup_epochs=3, max_epochs=NUM_EPOCHS):
     def lr_lambda(epoch):
@@ -96,7 +89,6 @@ def get_cosine_scheduler(optimizer, warmup_epochs=3, max_epochs=NUM_EPOCHS):
         return 0.5 * (1.0 + math.cos(math.pi * progress))
     return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
 
-# ----------------------------- TRAIN/VALID LOOP -----------------------------
 
 def train_and_evaluate(data_root, out_dir=OUT_DIR):
     device = DEVICE
@@ -216,6 +208,5 @@ def train_and_evaluate(data_root, out_dir=OUT_DIR):
     save_txt(out_dir / 'results_readable.txt', f"Test AUC: {test_auc:.4f}\nTest F1: {test_f1:.4f}\nPrecision: {test_precision:.4f}\nRecall: {test_recall:.4f}\n\n{cls_report}\nConfusion Matrix:\n{cm}")
     print('Training complete. Results saved in', out_dir)
 
-# ----------------------------- ENTRY POINT -----------------------------
 if __name__ == '__main__':
     train_and_evaluate(DATA_ROOT, OUT_DIR)
