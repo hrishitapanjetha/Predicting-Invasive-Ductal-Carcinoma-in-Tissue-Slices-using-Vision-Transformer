@@ -10,17 +10,17 @@ breast_cancer_data/
 
   ├── patient_1/
 
-    │   ├── 0/
+  ├── 0/
 
-    │   └── 1/
+  └── 1/
 
   ├── patient_2/
 
-    │   ├── 0/
+  ├── 0/
 
-    │   └── 1/
+  └── 1/
 
-    ...
+  ...
 
 The dataset reorganization script (data_script_vit.py) converts the original patient-based folder structure into ImageFolder format for PyTorch.
 The output_vit folder contains the results and evaluation metrices.
